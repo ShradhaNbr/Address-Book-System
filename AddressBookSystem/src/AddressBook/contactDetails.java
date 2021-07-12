@@ -1,5 +1,7 @@
 package AddressBook;
 
+import java.util.Scanner;
+
 public class contactDetails {
 	String firstName, lastName, address, city, state, email;
 	long zipCode, phoneNumber;
@@ -67,4 +69,10 @@ public class contactDetails {
 	public void setphoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	// To overide
+	public String toString() {
+		return " first name: " + firstName + "last name: " + lastName + "address: " + address + "city: " + city + "state: "
+				+ state + "email: " + email + "zipcode: " + zipCode + " phone number: " + phoneNumber;
+	}
+
 }
