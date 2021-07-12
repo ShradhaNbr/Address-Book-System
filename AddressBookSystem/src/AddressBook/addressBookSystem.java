@@ -73,18 +73,45 @@ public class addressBookSystem {
 					break;
 				}
 				System.out.println("Edited values are" + arrayPerson);
-			}
-			else 
+			} else
 				System.out.println("Invalid name");
-			
+
 		}
+	}
+
+	public void deletePerson() {
+		System.out.println("Enter the first name to delete details");
+		String Name = sc.next();
+		for (int i = 0; i < arrayPerson.size(); i++) {
+			if (arrayPerson.get(i).getfirstName().equals(Name)) {
+				arrayPerson.remove(i);
+			} else
+				System.out.println("Invalid name");
+		}
+		System.out.println("Array list" + arrayPerson);
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Address Book");
 		addressBookSystem Book = new addressBookSystem();
-		Book.addContact();
-		Book.editDetails();
+		while (true) {
+			System.out.println("Enter what function you want to perform");
+			System.out.println("1.add details 2. edit detalis 3. delete the person");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				Book.addContact();
+				break;
+			case 2:
+				Book.editDetails();
+				break;
+			case 3:
+				Book.deletePerson();
+				break;
+			default:
+				System.out.println("Invalid option");
+			}
+		}
 
 	}
 
