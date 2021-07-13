@@ -71,8 +71,8 @@ public class contactDetails {
 	}
 	// To overide
 	public String toString() {
-		return " first name: " + firstName + "last name: " + lastName + "address: " + address + "city: " + city + "state: "
-				+ state + "email: " + email + "zipcode: " + zipCode + " phone number: " + phoneNumber;
+		return " \n first name: " + firstName + " \n last name: " + lastName + "\n address: " + address + "\n city: " + city + "\n state: "
+				+ state + "\n email: " + email + "\n zipcode: " + zipCode + "\n phone number: " + phoneNumber;
 	}
 
 }

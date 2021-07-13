@@ -8,7 +8,7 @@ public class addressBookSystem {
 	static ArrayList<contactDetails> arrayPerson = new ArrayList<>();
 
 	public void addContact() {
-
+		
 		contactDetails contact = new contactDetails();
 		System.out.println("Enter first name");
 		contact.setfirstName(sc.next());
@@ -26,9 +26,9 @@ public class addressBookSystem {
 		contact.setzipCode(sc.nextLong());
 		System.out.println("Enter phone Number");
 		contact.setphoneNumber(sc.nextLong());
-		arrayPerson.add(contact);
-
-	}
+		arrayPerson.add(contact); 
+		System.out.println(arrayPerson);
+		}
 
 	public void editDetails() {
 		System.out.println("Confirm the first name to edit details");
@@ -85,10 +85,10 @@ public class addressBookSystem {
 		for (int i = 0; i < arrayPerson.size(); i++) {
 			if (arrayPerson.get(i).getfirstName().equals(Name)) {
 				arrayPerson.remove(i);
-			} else
+			} else 
 				System.out.println("Invalid name");
-		}
 		System.out.println("Array list" + arrayPerson);
+		}
 	}
 
 	public static void main(String[] args) {
