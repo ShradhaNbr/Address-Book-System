@@ -1,14 +1,30 @@
 package AddressBook;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 public class addressBookSystem {
 	static Scanner sc = new Scanner(System.in);
+	String name;
 	static ArrayList<contactDetails> arrayPerson = new ArrayList<>();
+	static Dictionary<String, ArrayList<contactDetails>> dictionary = new Hashtable<>();
+	
+	public void newAddressBook() {
+		System.out.println("Enter the name of the address book");
+		name = sc.next();
+		ArrayList<contactDetails> tempContact = new ArrayList<>();
+		arrayPerson = tempContact;
+		dictionary.put(name, arrayPerson);
+		System.out.println("Enter the name of address book in which you want to enter");
+		name = sc.next();
+		ArrayList<contactDetails> tempContact1 = new ArrayList<>();
+		arrayPerson = tempContact1;
+		arrayPerson = dictionary.get(name);
+	}
 
 	public void addContact() {
-		
 		contactDetails contact = new contactDetails();
 		System.out.println("Enter first name");
 		contact.setfirstName(sc.next());
@@ -26,9 +42,9 @@ public class addressBookSystem {
 		contact.setzipCode(sc.nextLong());
 		System.out.println("Enter phone Number");
 		contact.setphoneNumber(sc.nextLong());
-		arrayPerson.add(contact); 
+		arrayPerson.add(contact);
 		System.out.println(arrayPerson);
-		}
+	}
 
 	public void editDetails() {
 		System.out.println("Confirm the first name to edit details");
@@ -85,9 +101,9 @@ public class addressBookSystem {
 		for (int i = 0; i < arrayPerson.size(); i++) {
 			if (arrayPerson.get(i).getfirstName().equals(Name)) {
 				arrayPerson.remove(i);
-			} else 
+			} else
 				System.out.println("Invalid name");
-		System.out.println("Array list" + arrayPerson);
+			System.out.println("Array list" + arrayPerson);
 		}
 	}
 
@@ -96,23 +112,26 @@ public class addressBookSystem {
 		addressBookSystem Book = new addressBookSystem();
 		while (true) {
 			System.out.println("Enter what function you want to perform");
-			System.out.println("1.add details 2. edit detalis 3. delete the person");
+			System.out.println("1. Create new address book 2.add details 3. edit detalis 4. delete the person");
 			int choice = sc.nextInt();
 			switch (choice) {
 			case 1:
-				Book.addContact();
+				Book.newAddressBook();
 				break;
 			case 2:
-				Book.editDetails();
+				Book.addContact();
 				break;
 			case 3:
+				Book.editDetails();
+				break;
+			case 4:
 				Book.deletePerson();
 				break;
 			default:
 				System.out.println("Invalid option");
 			}
-		}
 
+		}
 	}
 
 }
